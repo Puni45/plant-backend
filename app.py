@@ -142,9 +142,17 @@ def health_check():
         'timestamp': datetime.now().isoformat()
     })
 
+
+
+
 # ----------------------------
 # Main entry
 # ----------------------------
+def handler(event, context=None):   # for Vercel serverless
+    load_model()
+    load_sample_data()
+    return app
+
 if __name__ == '__main__':
     load_model()
     load_sample_data()
